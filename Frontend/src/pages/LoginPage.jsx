@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,Link} from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
 import { FiMail, FiLock, FiLogIn, FiUserPlus } from "react-icons/fi";
@@ -94,12 +94,12 @@ const LoginPage = () => {
 
         <p className="text-center text-gray-500 text-sm mt-6">
           Don't have an account?{" "}
-          <a
-            href="/register"
+          <Link
+  to="/register"
             className="inline-flex items-center gap-1 text-blue-600 font-medium hover:underline"
           >
             <FiUserPlus className="text-sm" /> Register
-          </a>
+          </Link>
         </p>
       </div>
     </div>
