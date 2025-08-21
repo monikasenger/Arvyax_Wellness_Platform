@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import {
   FiUser,
@@ -115,12 +115,12 @@ const RegisterPage = () => {
 
         <p className="text-center text-gray-600 text-sm mt-5">
           Already have an account?{" "}
-          <a
-            href="/login"
+          <Link
+  to="/login"
             className="inline-flex items-center gap-1 text-indigo-600 font-medium hover:underline"
           >
             <FiLogIn className="text-sm" /> Login
-          </a>
+          </Link>
         </p>
       </div>
     </div>
