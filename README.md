@@ -33,21 +33,6 @@ Users can explore sessions, book wellness activities, and manage their personal 
 | **Database** | MongoDB with Mongoose            |
 | **Deployment** | Render (Frontend & Backend)   |
 
-----
-### 🔧 Setup Backend:
-
-```bash
-cd backend
-npm install
-
-🛠️ Create a .env file in /backend:
-PORT=4000
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-
-▶️ Run the backend:
-npm run server
-```
 ---
 ## ⚙️ Environment Variables
 
@@ -84,7 +69,6 @@ cd Arvyax_Wellness_Platform
 ```
 ---
 
----
 ### 🔧 Setup Backend:
 
 ```bash
