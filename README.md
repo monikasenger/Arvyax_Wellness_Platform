@@ -8,7 +8,7 @@ Users can explore sessions, book wellness activities, and manage their personal 
 ## 🚀 Deployment
 
 - **Frontend (Vercel/Render):** [fontend](https://arvyax-wellness-platform-fr61.onrender.com)  
-- **Backend (Render):** [backend](https://arvyax-wellness-platform-backend.onrender.com)  
+- **Backend (Render):** [backend](https://arvyax-wellness-platform-backend.onrender.com)
 
 ---
 
