@@ -54,25 +54,26 @@ export default function MySessions() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Navbar />
-      <div className="p-6 max-w-6xl mx-auto">
+      <div className="px-4 sm:px-6 lg:px-8 py-6 max-w-7xl mx-auto">
+        
         {/* Header */}
-        <div className="flex flex-wrap items-center justify-between mb-8 gap-3">
-          <h1 className="text-3xl font-extrabold text-gray-800 flex items-center gap-2">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-800 flex items-center gap-2">
             <FiFilter className="text-blue-600" /> My Sessions
           </h1>
 
           {/* Top Buttons */}
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <button
               onClick={() => navigate("/dashboard")}
-              className="flex items-center gap-2 bg-gray-600 text-white px-4 py-2 rounded-lg shadow hover:bg-gray-700 transition"
+              className="flex items-center justify-center gap-2 bg-gray-600 text-white px-3 sm:px-4 py-2 rounded-lg shadow hover:bg-gray-700 transition text-sm sm:text-base"
             >
               <FiArrowLeft /> Back
             </button>
 
             <Link
               to="/editor"
-              className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition"
+              className="flex items-center justify-center gap-2 bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition text-sm sm:text-base"
             >
               <FiPlus /> New Session
             </Link>
@@ -80,7 +81,7 @@ export default function MySessions() {
         </div>
 
         {/* Filters */}
-        <div className="flex gap-2 mb-6 flex-wrap">
+        <div className="flex flex-wrap gap-2 mb-6">
           {["all", "draft", "published"].map((f) => (
             <button
               key={f}
@@ -104,9 +105,9 @@ export default function MySessions() {
         ) : filteredSessions.length === 0 ? (
           <p className="text-center text-gray-500 mt-10">No sessions found</p>
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredSessions.map((s) => (
-              <SessionCard 
+              <SessionCard
                 key={s._id}
                 title={s.title}
                 tags={s.tags}

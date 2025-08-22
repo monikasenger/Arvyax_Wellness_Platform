@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
   // ========================
   const register = async (name, email, password) => {
     try {
-      const res = await axios.post(`${backendURL}/auth/register`, { name, email, password });
+      const res = await axios.post(`${backendURL}/api/auth/register`, { name, email, password });
       toast.success("Registration successful! Please login.");
       return res.data;
     } catch (err) {
@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const res = await axios.post(`${backendURL}/auth/login`, { email, password });
+      const res = await axios.post(`${backendURL}/api/auth/login`, { email, password });
       const { token, user: userData } = res.data;
 
       localStorage.setItem("token", token);
@@ -61,7 +61,7 @@ export const AuthProvider = ({ children }) => {
   // ========================
   const fetchSessions = async () => {
     try {
-      const res = await axios.get(`${backendURL}/sessions`);
+      const res = await axios.get(`${backendURL}/api/sessions`);
       setSessions(res.data);
       return res.data;
     } catch (err) {
@@ -73,7 +73,7 @@ export const AuthProvider = ({ children }) => {
   const fetchMySessions = useCallback(async () => {
     if (!user?.token) return [];
     try {
-      const res = await axios.get(`${backendURL}/my-sessions`, {
+      const res = await axios.get(`${backendURL}/api/my-sessions`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       setMySessions(res.data);
@@ -87,7 +87,7 @@ export const AuthProvider = ({ children }) => {
   const fetchMySessionById = async (id) => {
     if (!user?.token) return null;
     try {
-      const res = await axios.get(`${backendURL}/my-sessions/${id}`, {
+      const res = await axios.get(`${backendURL}/api/my-sessions/${id}`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       return res.data;
@@ -101,7 +101,7 @@ export const AuthProvider = ({ children }) => {
     if (!user?.token) return null;
     try {
       const res = await axios.post(
-        `${backendURL}/my-sessions/save-draft`,
+        `${backendURL}/api/my-sessions/save-draft`,
         { id, title, tags, json_file_url },
         { headers: { Authorization: `Bearer ${user.token}` } }
       );
@@ -118,7 +118,7 @@ export const AuthProvider = ({ children }) => {
     if (!user?.token) return null;
     try {
       const res = await axios.post(
-        `${backendURL}/my-sessions/publish`,
+        `${backendURL}/api/my-sessions/publish`,
         { id, title, tags, json_file_url },
         { headers: { Authorization: `Bearer ${user.token}` } }
       );
@@ -134,7 +134,7 @@ export const AuthProvider = ({ children }) => {
   const deleteSession = async (id) => {
     if (!user?.token) return;
     try {
-      await axios.delete(`${backendURL}/my-sessions/${id}`, {
+      await axios.delete(`${backendURL}/api/my-sessions/${id}`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       toast.success("Session deleted successfully!");
